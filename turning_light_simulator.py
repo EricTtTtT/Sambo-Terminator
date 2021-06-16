@@ -89,7 +89,7 @@ button_r.grid(row=0, column=2, padx=64)
 time_str = StringVar()
 time_str.set('start')
 direction_str = StringVar()
-direction_str.set('barin\n\U0001f815')
+direction_str.set('brain\n\U0001f815')
 
 def getTime():
     global count
@@ -100,11 +100,11 @@ def getTime():
     button_r.configure(bg="white")
     try:
         if prediction[count] == 0:
-            direction_str.set('barin\n\U0001f814')
+            direction_str.set('brain\n\U0001f814')
         elif prediction[count] == 1:
-            direction_str.set('barin\n\U0001f815')
+            direction_str.set('brain\n\U0001f815')
         elif prediction[count] == 2:
-            direction_str.set('barin\n\U0001f816')
+            direction_str.set('brain\n\U0001f816')
         else:
             raise ValueError("Illegal value in prediction {count}")
         if lights[count] == 0:
