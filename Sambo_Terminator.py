@@ -241,8 +241,8 @@ class Classifier(nn.Module):
     def __init__(self):
         super(Classifier, self).__init__()
         self.large = False
-        self.channel = [6, 12, 16, 32, 16]
-        self.probs = [0.1, 0.2, 0.3, 0.4]
+        self.channel = [6, 8, 12, 16]
+        self.probs = [0.1, 0.2, 0.3]
 
         self.maxPool = nn.MaxPool1d(2)
 
@@ -281,17 +281,6 @@ class Classifier(nn.Module):
             # nn.ReLU(),
         )
 
-        # self.cnn3 = nn.Sequential(
-        #     nn.Conv1d(self.channel[3], self.channel[3], 3, 1, 1),
-        #     nn.BatchNorm1d(self.channel[3]),
-        #     nn.ReLU(),
-        # )
-        # self.p3 = nn.Sequential(
-        #     nn.Conv1d(self.channel[3], self.channel[4], 3, 1, 1),
-        #     nn.BatchNorm1d(self.channel[4]),
-        #     nn.ReLU(),
-        # )
-
         self.adaptive_avg_pool = nn.AdaptiveAvgPool1d(1)
 
         self.fc2 = nn.Sequential(
@@ -300,7 +289,7 @@ class Classifier(nn.Module):
         )
 
     def forward(self, x):
-        x = x.view(x.size()[0], 6, -1)
+        x = x.view(x.size()[0], self.channel[0], -1)
         y = self.cnn0(x)
         y = drop_connect(y, self.probs[0], self.training)
         x = self.p0(x + y)
@@ -312,10 +301,6 @@ class Classifier(nn.Module):
         y = self.cnn2(x)
         y = drop_connect(y, self.probs[2], self.training)
         x = self.p2(x + y)
-
-        # y = self.cnn3(x)
-        # y = drop_connect(y, self.probs[3], self.training)
-        # x = self.p3(x + y)
 
         y = self.adaptive_avg_pool(x)
         y = y.view(y.size()[0], -1)
