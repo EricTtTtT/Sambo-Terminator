@@ -7,7 +7,7 @@ from typing import Sized, TextIO
 # Build the Frame
 root = Tk()
 root.title('BE-Lab  turn signal')
-root.geometry("800x460")
+root.geometry("800x600")
 
 def turn_light(predict):
     lights = []
@@ -51,14 +51,14 @@ print(f"len(turn_lights) = {len(lights)}, total {len(lights)/10} secs")
 
 
 top_frame = Frame(root)
-top_frame.pack(side=TOP)
+top_frame.pack(side=TOP, pady=32)
 
 
 frame = Frame(root)
 frame.pack(pady=64)
 
 but_frame = Frame(root)
-but_frame.pack(side=BOTTOM)
+but_frame.pack(side=BOTTOM, pady=32)
 
 
 button_l = Button(frame,
