@@ -33,7 +33,7 @@ a. Experimental Data: We only use the first five seconds of each turn/straight p
 b. Demo: Using measurement method two, we asked participants to run Route One and recorded it. The actual video includes four instances each of left turns, straight movements, and right turns. The first twenty seconds are rest, followed by a 5-second action and 5-second rest pattern. The following page shows some of the comparison screens for these turns.
 
 ## Discussion
-a. Factors Affecting Brainwaves:
+Factors Affecting Brainwaves:
 
 Variations in signals from the same person on different days.
 Position and type of electrode patches.
